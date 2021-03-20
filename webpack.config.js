@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     // webpack will take the files from ./src/index
     entry: './src/index',
@@ -25,8 +26,8 @@ module.exports = {
             },
             // css-loader to bundle all the css files into one file and style-loader to add all the styles  inside the style tag of the document
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                test: /\.(css|scss)$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
@@ -41,6 +42,12 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
+        watchOptions: { aggregateTimeout: 300, poll: 1000 },
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+        },
         port: 4000
     },
     plugins: [
