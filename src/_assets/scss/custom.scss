@@ -1,0 +1,106 @@
+@import './color.scss';
+
+.user {
+    cursor: pointer;
+}
+
+.search-input {
+    max-width: 400px;
+}
+
+.settings-container {
+    max-width: 500px;
+    padding: 50px 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin: 20px auto;
+}
+
+.nationality-select {
+    min-width: 200px;
+}
+
+.error-template {
+    padding: 40px 15px;text-align: center;
+}
+
+.error-actions {
+    margin-top:15px;margin-bottom:15px;
+}
+
+.error-actions .btn {
+    margin-right:10px;
+}
+
+.navbar.fixed-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1030;
+    background-color: $grayBlue;
+    flex-direction: column;
+    width: 80px;
+
+    .navbar-brand {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .navbar-collapse {
+        flex-direction: column;
+    }
+}
+
+.menu-item {
+    margin: 10px 0;
+    &.active svg {
+        fill: $white;
+    }
+    svg {
+        fill: $menuGray;
+    }
+}
+
+.jumbotron {
+    padding: 0;
+    padding-left: 80px;
+}
+
+.top-header-wrapper {
+    background-color: white;
+    padding: 18px 32px;
+    display: flex;
+
+    .top-header-item {
+        display: flex;
+        flex-direction: column;
+        margin-right: 24px;
+        font-size: 19px;
+        font-weight: 400;
+        color: $grayPure;
+
+        span {
+            color: $lightGrayPure;
+            font-size: 13px;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .navbar.fixed-left {
+        flex-direction: row;
+        bottom: auto;
+        right: 0;
+        width: auto;
+        background-color: $lightGray;
+
+        .navbar-brand {
+            margin-bottom: 0px;
+        }
+    }
+
+    .jumbotron {
+        padding: 90px 0;
+    }
+}
