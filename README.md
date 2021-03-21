@@ -1,13 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Promo Code App
+This is a simple promo code app, where you can search for service and reveal promo codes. The app would display a list of promo codes.
+Pull promo codes from the API (https://github.com/leadstar116/nestjs-promo-code-app). <br/>
+As default, it is showing 10 promo codes.
+
+## Used Stacks:
+- React
+- Redux
+- Redux Thunk
+- Webpack
+- Unit Testing
+
+## Main Functionalities of App
+
+### Home page (browse with search)
+- The page would be located on the root url ​`/` - display the users in a grid.
+- Show each promo code data
+- Ability to filter service by name.
+- Ability to reset filter.
+- Ability to copy promo code to the clipboard.
+- Ability to change service status to “Activated” by clicking on the “Activate bonus” button.
+
+
+## Screenshots
+You can check video here: https://www.screencast.com/t/E1Lm0Ml9
+<source src="https://content.screencast.com/users/SupremeDev/folders/Capture/media/53c5a8d0-bd20-4255-be25-f490dad967eb/TechSmithCapture.mp4" type="video/mp4">
+
+# Project Run
+This project is running with webpack, babel and yarn.
+
+## API
+You would need to download promo-code-app API and run it first (https://github.com/leadstar116/nestjs-promo-code-app).<br />
+Or I hosted this API on the heroku so maybe you can just use it. (https://nestjs-promo-code-app.herokuapp.com/api) <br />
+
+You can check more details about the API in it's repository.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn install`
+To install dependencies, please download the repository and run the command `yarn install`
+I used
+- yarn: v1.22.10
+- node: v12.14.1
+
+### `yarn dev`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
