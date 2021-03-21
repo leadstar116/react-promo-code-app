@@ -1,6 +1,6 @@
 import React from 'react'
 import PromoCodeWrapper from '../_components/PromoCodeWrapper'
-import TopHeader from '../_components/Settings'
+import TopHeader from '../_components/TopHeader'
 
 function HomePage() {
 
