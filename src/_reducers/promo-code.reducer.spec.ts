@@ -1,132 +1,71 @@
-import { UserInfo } from "../_constants/promo-code.interface"
+import { PromoCode } from "../_constants/promo-code.interface"
 import usersReducer from './promo-code.reducer'
-import * as usersActions from '../_actions/promo-code.actions'
+import * as promoCodeActions from '../_actions/promo-code.actions'
 
 describe('users reducer test', () => {
     let initialState = {
-        users: [] as UserInfo[],
-        preloadedUsers: [] as UserInfo[],
-        isPreloaded: false
-    }
+        promoCodes: [] as PromoCode[]
+    };
 
-    const testUserInfo = {
-        email: 'test@test.com',
-        name: {
-            first: "James",
-            last: "Bond",
-            username: "test"
-        },
-        picture: {
-            large: "https://randomuser.me/api/portraits/men/75.jpg",
-            medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
-            thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg"
-        } ,
-        cell: "+14325432870",
-        dob: {
-            date: "1993-07-20T09:44:18.674Z",
-            age: 26
-        },
-        gender: "male",
-        location: {
-            street: {
-                name: "9278 new road",
-                number: 12
-            },
-            city: "kilcoole",
-            state: "waterford",
-            postcode: 93027,
-            country: "CH",
-            coordinates: {
-              latitude: "20.9267",
-              longitude: "-7.9310"
-            },
-            timezone: {
-              offset: "-3:30",
-              description: "Newfoundland"
-            }
-        },
-        nat: "CH",
-        phone: "+14325432870",
-        id: {
-            name: "testuser111",
-            value: "12"
-        },
-        login: {
-            username: "test"
-        }
-    } as UserInfo
+    const testPromoCode = {
+		id: 1,
+		serviceName: 'PromoService.com',
+		description: 'some description',
+		code: 'FE86XR3',
+		status: "pending"
+	} as PromoCode;
 
-    test('USER_LOADED_SUCCESSFULLY: should set loaded users to preloaded users and isPreloaded to true', () => {
-        const users = [ testUserInfo ]
+
+    test('PROMO_CODE_LOADED_SUCCESSFULLY: should set loaded promo codes to the state', () => {
+        const promoCodes = [ testPromoCode ]
         const expectedState = {
-            users: [],
-            preloadedUsers: users,
-            isPreloaded: true
+            promoCodes: [ testPromoCode ]
         }
         const action = {
-            type: usersActions.USER_LOADED_SUCCESSFULLY,
-            payload: { users }
+            type: promoCodeActions.PROMO_CODE_LOADED_SUCCESSFULLY,
+            payload: { promoCodes }
         }
         const newState = usersReducer(initialState, action)
         expect(newState).toEqual(expectedState)
-    })
+    });
 
-    test('UPDATE_USERS_WITH_PRELOADED_USERS: should add preloaded users to users, set isPreloaded to false and preloadedUsers to empty array',
-        () => {
-            const users = [ testUserInfo ]
-            initialState = {
-                users: [],
-                preloadedUsers: [ testUserInfo ],
-                isPreloaded: true
+    test('UPDATE_PROMO_CODE_STATUS: should find promo code by id and update status', () => {
+            const initialState = {
+                promoCodes: [ testPromoCode ]
             }
+            const updatedPromoCode = {
+                id: 1,
+                serviceName: 'PromoService.com',
+                description: 'some description',
+                code: 'FE86XR3',
+                status: "active"
+            } as PromoCode
             const expectedState = {
-                users,
-                preloadedUsers: [],
-                isPreloaded: false
+                promoCodes: [ updatedPromoCode ]
             }
             const action = {
-                type: usersActions.UPDATE_USERS_WITH_PRELOADED_USERS,
-                payload: {}
+                type: promoCodeActions.UPDATE_PROMO_CODE_STATUS,
+                payload: {
+                    id: 1,
+                    status: "active"
+                }
             }
             const newState = usersReducer(initialState, action)
             expect(newState).toEqual(expectedState)
-        })
+    });
 
-    test('UPDATE_PRELOADED_FLAG: should set isPreloaded to true', () => {
+    test('CLEAR_PROMO_CODES: should set promo codes to empty', () => {
         initialState = {
-            users: [],
-            preloadedUsers: [],
-            isPreloaded: true
+            promoCodes: [ testPromoCode ]
         }
         const expectedState = {
-            users: [],
-            preloadedUsers: [],
-            isPreloaded: true
+            promoCodes: []
         }
         const action = {
-            type: usersActions.UPDATE_PRELOADED_FLAG,
-            payload: true
-        }
-        const newState = usersReducer(initialState, action)
-        expect(newState).toEqual(expectedState)
-    })
-
-    test('CLEAR_USERS: should set users to empty', () => {
-        initialState = {
-            users: [ testUserInfo ],
-            preloadedUsers: [],
-            isPreloaded: false
-        }
-        const expectedState = {
-            users: [],
-            preloadedUsers: [],
-            isPreloaded: false
-        }
-        const action = {
-            type: usersActions.CLEAR_USERS,
+            type: promoCodeActions.CLEAR_PROMO_CODES,
             payload: {}
         }
         const newState = usersReducer(initialState, action)
         expect(newState).toEqual(expectedState)
-    })
+    });
 })

@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import MenuBar from './MenuBar'
 
 
-describe('Header Component', () => {
+describe('MenuBar Component', () => {
     let component = renderer.create(
         <BrowserRouter>
             <MenuBar/>

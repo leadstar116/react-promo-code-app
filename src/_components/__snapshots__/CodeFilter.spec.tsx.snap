@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodeFilter Component should render with given props 1`] = `
+<div
+  className="code-filter-wrapper"
+>
+  <label
+    htmlFor="code-filter"
+  >
+    FILTER
+  </label>
+  <div
+    className="mr-sm-2 search-input input-group"
+  >
+    <input
+      className="mr-sm-2 form-control"
+      id="code-filter"
+      onChange={[Function]}
+      placeholder="Search"
+      type="text"
+      value=""
+    />
+    <button
+      className="btn-reset-filter btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Reset
+    </button>
+  </div>
+</div>
+`;
