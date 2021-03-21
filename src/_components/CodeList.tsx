@@ -15,10 +15,8 @@ const CodeList = ({ searchString }: Props) => {
 
     const promoCodesCount = 10
 
-    console.log('promoCodeList', promoCodeList);
     // Load Promo Codes.
     useEffect(() => {
-        console.log('--dispatch load promo codes---');
         dispatch(loadPromoCodes(promoCodesCount))
     }, [dispatch])
 
