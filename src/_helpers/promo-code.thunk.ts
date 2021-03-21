@@ -16,7 +16,7 @@ export const loadPromoCodes = (count = 10) => async (dispatch: MyThunkDispatch) 
             body: JSON.stringify({ count })
         };
         let response = await fetch(
-            `http://localhost:3001/promo-code`,
+            `https://nestjs-promo-code-app.herokuapp.com/promo-code`,
             requestOptions
         );
         const result = await response.json();
