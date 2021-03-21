@@ -11,11 +11,12 @@ import './_assets/scss/App.scss'
 
 const persistor = persistStore(store);
 
+persistor.purge();
 render(
-  <Provider store={ store }>
+  <Provider store={store}>
     <PersistGate
-        persistor={ persistor }
-        loading={<div>loading...</div>}
+      persistor={persistor}
+      loading={<div>loading...</div>}
     >
       <App />
     </PersistGate>

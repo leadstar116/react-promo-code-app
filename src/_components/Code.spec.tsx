@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import { UserInfo } from '../_constants/users.interface';
-import User from './User'
+import { UserInfo } from '../_constants/promo-code.interface';
+import Code from './Code'
 
 
-describe('User Component', () => {
+describe('Code Component', () => {
     const testUserInfo = {
         email: 'test@test.com',
         name: {
@@ -55,7 +55,7 @@ describe('User Component', () => {
 
     let component = renderer.create(
         <BrowserRouter>
-            <User data={testUserInfo}/>
+            <Code data={testUserInfo}/>
         </BrowserRouter>
     );
 

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadUsers, updateUsers } from '../_helpers/user.thunk'
-import { alertSuccess } from '../_actions/alert.actions'
-import User from './User'
+import { loadPromoCodes } from '../_helpers/promo-code.thunk'
+import Code from './Code'
 import { initialState } from '../_constants/state.interface'
 
 type Props = {
@@ -11,74 +10,33 @@ type Props = {
 
 const CodeList = ({ searchString }: Props) => {
     const dispatch = useDispatch()
-    const userList = useSelector((state:initialState) => state.usersReducer)
+    const promoCodeList = useSelector((state:initialState) => state.promoCodeReducer)
     const alertState = useSelector((state:initialState) => state.alertReducer)
-    const settings = useSelector((state:initialState) => state.settingsReducer)
 
-    const [isFetching, setIsFetching] = useState(false)
-    const [isInitialized, setIsInitialized] = useState(false)
+    const promoCodesCount = 10
 
-    const usersCount = 50
-    const maxUsersCount = 1000
-
-    // Preload users
+    console.log('promoCodeList', promoCodeList);
+    // Load Promo Codes.
     useEffect(() => {
-        if(userList.isPreloaded)
-            return
-        dispatch(loadUsers(usersCount, settings.location.nationality))
-    }, [dispatch, userList, settings, usersCount])
+        console.log('--dispatch load promo codes---');
+        dispatch(loadPromoCodes(promoCodesCount))
+    }, [dispatch])
 
-    // Initialize users at first load
-    useEffect(() => {
-        if(!userList.isPreloaded
-            || isInitialized
-            || userList.users.length)
-            return
-        dispatch(updateUsers())
-        setIsInitialized(true)
-    }, [userList, dispatch, isInitialized, usersCount])
-
-    // Add preloaded users to users list when scrolling
-    useEffect(() => {
-        if(!isFetching || searchString)
-            return
-        if(userList.users.length >= maxUsersCount) {
-            dispatch(alertSuccess('End of users catalog'))
-            return
-        }
-        dispatch(updateUsers())
-        setIsFetching(false)
-    }, [userList, dispatch, isFetching, searchString])
-
-    // Handle scroll
-    function handleScroll() {
-        if ((window.innerHeight + document.documentElement.scrollTop) !== document.documentElement.offsetHeight)
-            return
-        setIsFetching(true)
-    }
-
-    // Setup scroll event
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
-
-    const filtereUsersWithSearchKey = () => {
-        return userList.users.filter((user) => {
-            const name = user.name.first + user.name.last as string
-            return name.split(' ').join('').toLowerCase().includes(
-                searchString.split(' ').join('').toLowerCase()
+    const filterePromoCodesWithSearchKey = () => {
+        return promoCodeList.promoCodes.filter((promoCode) => {
+            return promoCode.serviceName.replace(' ', '').toLowerCase().includes(
+                searchString.replace(' ', '').toLowerCase()
             )
         })
     }
 
-    const filteredUsers = filtereUsersWithSearchKey()
+    const filteredPromoCodes = filterePromoCodesWithSearchKey()
 
     return (
-        <div className="p-2">
+        <div className="code-list-wrapper">
             {
-                filteredUsers.map((user, index) => (
-                    <User data={user} key={index}/>
+                filteredPromoCodes.map((promoCode, index) => (
+                    <Code data={promoCode} key={index}/>
                 ))
             }
             {alertState !== undefined &&
@@ -86,9 +44,9 @@ const CodeList = ({ searchString }: Props) => {
                     {alertState.alertMessage}
                 </div>
             }
-            {(!filteredUsers.length && userList.users.length)
+            {(!filteredPromoCodes.length && promoCodeList.promoCodes.length)
                 ? (<div className="alert alert-danger text-center">
-                    Sorry, we couldn't find a user with that name
+                    Sorry, we couldn't find a service with that name
                     </div>)
                 : ''
             }

@@ -1,9 +1,7 @@
 import { AlertState } from "./alert.interface";
-import { SettingsState } from "./settings.interface";
-import { UserState } from "./users.interface";
+import { PromoCodeState } from "./promo-code.interface";
 
 export interface initialState {
-  usersReducer: UserState,
+  promoCodeReducer: PromoCodeState,
   alertReducer: AlertState,
-  settingsReducer: SettingsState,
 }

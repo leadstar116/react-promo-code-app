@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import { LocationEnum, LocationSettings } from '../_constants/settings.interface';
 import CodeList from './CodeList'
-import { UserInfo } from '../_constants/users.interface';
+import { UserInfo } from '../_constants/promo-code.interface';
 
 
 describe('CodeList Component', () => {

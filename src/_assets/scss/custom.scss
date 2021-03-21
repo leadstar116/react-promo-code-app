@@ -1,37 +1,5 @@
 @import './color.scss';
 
-.user {
-    cursor: pointer;
-}
-
-.search-input {
-    max-width: 400px;
-}
-
-.settings-container {
-    max-width: 500px;
-    padding: 50px 10px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    margin: 20px auto;
-}
-
-.nationality-select {
-    min-width: 200px;
-}
-
-.error-template {
-    padding: 40px 15px;text-align: center;
-}
-
-.error-actions {
-    margin-top:15px;margin-bottom:15px;
-}
-
-.error-actions .btn {
-    margin-right:10px;
-}
-
 .navbar.fixed-left {
     position: fixed;
     top: 0;
@@ -61,6 +29,7 @@
         fill: $menuGray;
     }
 }
+
 
 .jumbotron {
     padding: 0;
@@ -99,6 +68,77 @@
         margin-bottom: 16px;
     }
 }
+
+.code-list-wrapper {
+    .one-promo-code {
+        background-color: white;
+        padding: 26px 32px;
+        margin: 0 0 24px 0;
+
+        .service-wrapper {
+            display: flex;
+            flex-direction: column;
+
+            .service-title {
+                font-size: 29px;
+                color: black;
+                font-weight: 300;
+                line-height: 42px;
+            }
+
+            .service-description {
+                font-size: 15px;
+                color: $lightGrayPure;
+                margin-top: 10px;
+            }
+        }
+
+        .promo-code-wrapper {
+            .promo-code-label {
+                font-size: 11px;
+                font-weight: 400;
+                color: $lightGrayPure;
+            }
+
+            .input-group {
+                input {
+                    height: 48px;
+                    border-right: none;
+                    border-color: $grayBorder;
+                }
+
+                button {
+                    border-left: none;
+                    border-color: $grayBorder;
+                    background-color: transparent;
+                }
+            }
+
+            .btn-activate-bonus {
+                height: 48px;
+                padding: 12px 87px;
+            }
+        }
+    }
+}
+
+.search-input {
+    max-width: 400px;
+}
+
+.error-template {
+    padding: 40px 15px;text-align: center;
+}
+
+.error-actions {
+    margin-top:15px;margin-bottom:15px;
+}
+
+.error-actions .btn {
+    margin-right:10px;
+}
+
+
 
 .code-filter-wrapper {
     margin-bottom: 24px;

@@ -1,5 +1,5 @@
-import * as usersActions from './users.actions'
-import { UserInfo } from "../_constants/users.interface"
+import * as usersActions from './promo-code.actions'
+import { UserInfo } from "../_constants/code.interface"
 
 const testUserInfo = {
     email: 'test@test.com',
