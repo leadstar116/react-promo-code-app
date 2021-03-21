@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
+import PromoCodeWrapper from '../_components/PromoCodeWrapper'
 import TopHeader from '../_components/Settings'
-import UserList from '../_components/UserList'
 
 function HomePage() {
-    const [searchString, setSearchString] = useState("")
 
     return (
         <>
             <TopHeader />
-            <UserList
-                searchString = {searchString}
-            />
+            <div className="main-wrapper">
+                <h1 className="page-title">Services</h1>
+                <PromoCodeWrapper />
+            </div>
         </>
     )
 }

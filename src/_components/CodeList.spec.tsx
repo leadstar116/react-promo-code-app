@@ -3,11 +3,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
 import { LocationEnum, LocationSettings } from '../_constants/settings.interface';
-import UserList from './UserList'
+import CodeList from './CodeList'
 import { UserInfo } from '../_constants/users.interface';
 
 
-describe('UserList Component', () => {
+describe('CodeList Component', () => {
     const testUserInfo = {
         email: 'test@test.com',
         name: {
@@ -76,7 +76,7 @@ describe('UserList Component', () => {
 
     let component = renderer.create(
         <Provider store={store}>
-            <UserList searchString=""/>
+            <CodeList searchString=""/>
         </Provider>
     );
 

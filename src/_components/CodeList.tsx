@@ -9,7 +9,7 @@ type Props = {
     searchString: string,
 }
 
-const UserList = ({ searchString }: Props) => {
+const CodeList = ({ searchString }: Props) => {
     const dispatch = useDispatch()
     const userList = useSelector((state:initialState) => state.usersReducer)
     const alertState = useSelector((state:initialState) => state.alertReducer)
@@ -96,4 +96,4 @@ const UserList = ({ searchString }: Props) => {
     )
 }
 
-export default UserList
+export default CodeList

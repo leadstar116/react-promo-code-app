@@ -65,6 +65,7 @@
 .jumbotron {
     padding: 0;
     padding-left: 80px;
+    background-color: $grayBackground;
 }
 
 .top-header-wrapper {
@@ -84,6 +85,42 @@
             color: $lightGrayPure;
             font-size: 13px;
         }
+    }
+}
+
+.main-wrapper {
+    padding: 40px 32px;
+
+    .page-title {
+        font-weight: 300;
+        font-size: 39px;
+        line-height: 46px;
+        color: $grayPure;
+        margin-bottom: 16px;
+    }
+}
+
+.code-filter-wrapper {
+    margin-bottom: 24px;
+    color: $grayPure;
+
+    label {
+        font-size: 11px;
+        font-weight: 400;
+        color: $lightGrayPure;
+    }
+
+    input {
+        height: 48px;
+        border-radius: 4px;
+    }
+
+    button {
+        height: 48px;
+        padding: 10px 50px;
+        background-color: $grayBackground;
+        color: $grayPure;
+        border-color: $grayBorder;
     }
 }
 
