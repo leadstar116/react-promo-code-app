@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { PromoCode } from '../_constants/promo-code.interface'
 import { Row, Col, InputGroup, FormControl, Button, Overlay, Popover } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { updatePromoCodeStatus } from '../_actions/promo-code.actions'
 
 type Props = {
 	data: PromoCode
@@ -10,6 +12,12 @@ const Code = (props: Props) => {
 	const [showOverlay, setShowOverlay] = useState(false);
   const [target, setTarget] = useState(null);
 	const ref = useRef(null);
+	const dispatch = useDispatch()
+
+	const activateBonusClicked = () => {
+		const newStatus = (props.data.status === 'pending')? 'active' : 'pending';
+		dispatch(updatePromoCodeStatus(props.data.id, newStatus));
+	}
 
 	const onClipboardCopyBtnClicked = (e: any) => {
 		// Create a temporary element off-screen to hold text.
@@ -28,14 +36,14 @@ const Code = (props: Props) => {
 	return (
 		<div ref={ref}>
 			<Row className="rounded border align-items-center one-promo-code">
-				<Col xs={12} sm={5} className="service-wrapper">
+				<Col sm={12} md={5} className="service-wrapper">
 					<span className="service-title">{ props.data.serviceName }</span>
 					<span className="service-description">{ props.data.description }</span>
 				</Col>
-				<Col xs={12} sm={7} className="promo-code-wrapper">
+				<Col sm={12} md={7} className="promo-code-wrapper">
 					<span className="promo-code-label">PROMOCODE</span>
 					<Row>
-						<Col xs={12} sm={6}>
+						<Col sm={12} md={6}>
 							<InputGroup>
 								<FormControl
 									value={ props.data.code }
@@ -62,8 +70,13 @@ const Code = (props: Props) => {
 								</Popover>
 							</Overlay>
 						</Col>
-						<Col xs={12} sm={6}>
-							<Button className="btn-activate-bonus">Activate bonus</Button>
+						<Col sm={12} md={6}>
+							<Button
+								className={ (props.data.status === 'pending') ? 'btn-activate-bonus btn-primary' : 'btn-activate-bonus btn-danger' }
+								onClick={ activateBonusClicked }
+							>
+								{ (props.data.status === 'pending') ? 'Activate bonus' : 'Activated' }
+							</Button>
 						</Col>
 					</Row>
 				</Col>

@@ -165,7 +165,7 @@
     }
 }
 
-@media (max-width:768px) {
+@media (max-width:990px) {
     .navbar.fixed-left {
         flex-direction: row;
         bottom: auto;
@@ -180,5 +180,43 @@
 
     .jumbotron {
         padding: 90px 0;
+    }
+
+    .code-list-wrapper {
+        .one-promo-code {
+            .service-wrapper {
+                margin-bottom: 20px;
+            }
+
+            .promo-code-wrapper {
+                .input-group {
+                    margin-bottom: 10px;
+                }
+
+                .btn-activate-bonus {
+                    height: auto;
+                    width: 100%;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width:991px) and (max-width:1370px) {
+    .code-list-wrapper {
+        .one-promo-code {
+            .promo-code-wrapper {
+                .input-group {
+                    margin-bottom: 10px;
+                }
+
+                .btn-activate-bonus {
+                    height: auto;
+                    width: 100%;
+                    padding: 10px;
+                }
+            }
+        }
     }
 }
