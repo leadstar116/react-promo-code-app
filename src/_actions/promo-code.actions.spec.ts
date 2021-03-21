@@ -1,86 +1,48 @@
-import * as usersActions from './promo-code.actions'
-import { UserInfo } from "../_constants/code.interface"
+import * as promoCodeActions from './promo-code.actions'
+import { PromoCode } from "../_constants/promo-code.interface"
 
-const testUserInfo = {
-    email: 'test@test.com',
-    name: {
-        first: "James",
-        last: "Bond",
-        username: "james-bond"
-    },
-    picture: {
-        large: "https://randomuser.me/api/portraits/men/75.jpg",
-        medium: "https://randomuser.me/api/portraits/med/men/75.jpg",
-        thumbnail: "https://randomuser.me/api/portraits/thumb/men/75.jpg"
-    } ,
-    cell: "+14325432870",
-    dob: {
-        date: "1993-07-20T09:44:18.674Z",
-        age: 26
-    },
-    gender: "male",
-    location: {
-        street: {
-            name: "9278 new road",
-            number: 12
-        },
-        city: "kilcoole",
-        state: "waterford",
-        postcode: 93027,
-        country: "CH",
-        coordinates: {
-          latitude: "20.9267",
-          longitude: "-7.9310"
-        },
-        timezone: {
-          offset: "-3:30",
-          description: "Newfoundland"
-        }
-    },
-    nat: "CH",
-    phone: "+14325432870",
-    id: {
-        name: "testuser111",
-        value: "12"
-    },
-    login: {
-        username: "test"
-    }
-} as UserInfo
+const testPromoCode = {
+	id: 1,
+	serviceName: 'PromoService.com',
+	description: 'some description',
+	code: 'FE86XR3',
+	status: "pending"
+} as PromoCode
 
-describe('load users successfully action test', () => {
-    it('should return loaded users', () => {
-        const users = [
-            testUserInfo
-        ] as UserInfo[]
-        const expectedAction = {
-            type: usersActions.USER_LOADED_SUCCESSFULLY,
-            payload: { users }
-        }
-        expect(usersActions.userLoadedSuccessfully(users)).toEqual(expectedAction)
-    })
+describe('load promo code successfully action test', () => {
+	it('should return loaded promo codes', () => {
+		const promoCodes = [
+			testPromoCode
+		] as PromoCode[]
+		const expectedAction = {
+			type: promoCodeActions.PROMO_CODE_LOADED_SUCCESSFULLY,
+			payload: { promoCodes }
+		}
+		expect(promoCodeActions.promoCodeLoadedSuccessfully(promoCodes)).toEqual(expectedAction)
+	})
 })
 
-describe('update preloaded users flag action test', () => {
-    describe('When flag is true', () => {
-        it('should return true', () => {
-            const flag = true
-            const expectedAction = {
-                type: usersActions.UPDATE_PRELOADED_FLAG,
-                payload: { flag }
-            }
-            expect(usersActions.updatePreloadedFlag(flag)).toEqual(expectedAction)
-        })
-    })
+describe('update promo code status action test', () => {
+	it('should update promo code status as given status', () => {
+		const promoCodeId = 1;
+		const newStatus = "active"
+		const expectedAction = {
+			type: promoCodeActions.UPDATE_PROMO_CODE_STATUS,
+			payload: {
+				id: promoCodeId,
+				status: newStatus
+			}
+		}
+		expect(promoCodeActions.updatePromoCodeStatus(promoCodeId, newStatus)).toEqual(expectedAction)
+	})
+})
 
-    describe('When flag is false', () => {
-        it('should return false', () => {
-            const flag = false
-            const expectedAction = {
-                type: usersActions.UPDATE_PRELOADED_FLAG,
-                payload: { flag }
-            }
-            expect(usersActions.updatePreloadedFlag(flag)).toEqual(expectedAction)
-        })
-    })
+describe('clear promo code action test', () => {
+	it('should empty promo codes', () => {
+		const expectedAction = {
+			type: promoCodeActions.CLEAR_PROMO_CODES,
+			payload: {}
+		}
+		expect(promoCodeActions.clearPromoCodes()).toEqual(expectedAction)
+	})
 })

@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PromoCodeWrapper Component should render with given props 1`] = `
+Array [
+  <div
+    className="code-filter-wrapper"
+  >
+    <label
+      htmlFor="code-filter"
+    >
+      FILTER
+    </label>
+    <div
+      className="mr-sm-2 search-input input-group"
+    >
+      <input
+        className="mr-sm-2 form-control"
+        id="code-filter"
+        onChange={[Function]}
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+      <button
+        className="btn-reset-filter btn btn-primary"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Reset
+      </button>
+    </div>
+  </div>,
+  <div
+    className="code-list-wrapper"
+  >
+    <div>
+      <div
+        className="rounded border align-items-center one-promo-code row"
+      >
+        <div
+          className="service-wrapper col-md-5 col-sm-12"
+        >
+          <span
+            className="service-title"
+          >
+            PromoService.com
+          </span>
+          <span
+            className="service-description"
+          >
+            some description
+          </span>
+        </div>
+        <div
+          className="promo-code-wrapper col-md-7 col-sm-12"
+        >
+          <span
+            className="promo-code-label"
+          >
+            PROMOCODE
+          </span>
+          <div
+            className="row"
+          >
+            <div
+              className="col-md-6 col-sm-12"
+            >
+              <div
+                className="input-group"
+              >
+                <input
+                  className="form-control"
+                  readOnly={true}
+                  value="FE86XR3"
+                />
+                <div
+                  className="input-group-append"
+                >
+                  <button
+                    attr-code="FE86XR3"
+                    className="btn btn-primary"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <svg
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 14 16"
+                      width="14"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clipRule="evenodd"
+                        d="M10 3.5C10 3.22386 9.77614 3 9.5 3H0.5C0.223858 3 0 3.22386 0 3.5V15.5C0 15.7761 0.223858 16 0.5 16H9.5C9.77614 16 10 15.7761 10 15.5V3.5ZM8 5.5C8 5.22386 7.77614 5 7.5 5H2.5C2.22386 5 2 5.22386 2 5.5V13.5C2 13.7761 2.22386 14 2.5 14H7.5C7.77614 14 8 13.7761 8 13.5V5.5Z"
+                        fill="#0085FF"
+                        fillRule="evenodd"
+                      />
+                      <path
+                        d="M4 0.5C4 0.223858 4.22386 0 4.5 0H13.5C13.7761 0 14 0.223858 14 0.5V12.5C14 12.7761 13.7761 13 13.5 13H11.5C11.2239 13 11 12.7761 11 12.5V11.5C11 11.2239 11.2239 11 11.5 11C11.7761 11 12 10.7761 12 10.5V2.5C12 2.22386 11.7761 2 11.5 2H4.5C4.22386 2 4 1.77614 4 1.5V0.5Z"
+                        fill="#0085FF"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-md-6 col-sm-12"
+            >
+              <button
+                className="btn-activate-bonus btn-primary btn btn-primary"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Activate bonus
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>,
+]
+`;
