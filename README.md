@@ -13,7 +13,7 @@ As default, it is showing 10 promo codes.
 ## Main Functionalities of App
 
 ### Home page (browse with search)
-- The page would be located on the root url ​`/` - display the users in a grid.
+- The page would be located on the root url ​`/` 
 - Show each promo code data
 - Ability to filter service by name.
 - Ability to reset filter.
