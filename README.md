@@ -23,7 +23,7 @@ As default, it is showing 10 promo codes.
 
 ## Screenshots
 You can check video here: https://www.screencast.com/t/E1Lm0Ml9
-<source src="https://content.screencast.com/users/SupremeDev/folders/Capture/media/53c5a8d0-bd20-4255-be25-f490dad967eb/TechSmithCapture.mp4" type="video/mp4">
+[![Watch the video](https://content.screencast.com/users/SupremeDev/folders/Capture/media/7b2ef000-64c6-4c39-8f66-ffedfcd43d02/screenshot.png)](https://www.screencast.com/t/E1Lm0Ml9)
 
 # Project Run
 This project is running with webpack, babel and yarn.
